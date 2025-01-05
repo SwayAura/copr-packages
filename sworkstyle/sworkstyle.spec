@@ -6,7 +6,7 @@ License:        MIT
 Url:            https://github.com/Lyr-7D1h/swayest_workstyle
 Source0:         %{url}/archive/%{version}/swayest_workstyle-%{version}.tar.gz
 Source1:        additional_files/sworkstyle.man
-Source2:        additional_files/swayaura_default_config.toml
+Source2:        additional_files/default_config.swayaura.toml
 
 BuildRequires:	rust
 BuildRequires:  cargo
@@ -25,10 +25,11 @@ Mainly meant for the Sway window manager.
 # Unpack the tarball into swayest_workstyle-1.3.5/
 %autosetup -n swayest_workstyle-%{version}
 
-cp %{SOURCE2} default_config.toml
-
 # Copy over the man page from Source1
 cp %{SOURCE1} sworkstyle.1
+
+# Copy SwayAura configuration
+cp %{SOURCE2} default_config.toml
 
 %build
 # Build release binary with cargo
@@ -48,7 +49,6 @@ install -D -m0644 %{name}.1 \
   %{buildroot}%{_mandir}/man1/%{name}.1
 
 %files
-%doc README.md
 %license %{_licensedir}/%{name}/LICENSE
 %{_bindir}/sworkstyle
 %{_mandir}/man1/sworkstyle.1*
