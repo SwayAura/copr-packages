@@ -1,0 +1,143 @@
+# Config for sworkstyle
+#
+# You can rename workspaces based on the exact application names or by generic pattern.
+# When it could not match anything it will use the fallback.
+#
+# format:
+#
+# 	'{pattern}' = '{icon}'
+#
+# pattern: Can either be the exact "app_name" (app_id/class) of the window or a regex string in the format of `"/{regex}/"` which will match the window "title".
+# icon: Your beatifull icon
+#
+# verbose format:
+# 
+#	'{pattern}' = { type = 'generic' | 'exact', value = '{icon}' }
+#
+#
+# If it couldn't match something it will print:
+# 
+# WARN [sworkstyle:config] No match for '{app_name}' with title '{title}' 
+#
+# You can use {title} to do a generic matching 
+# You can use {app_name} to do an exact match
+
+fallback = ''
+separator = ' '
+
+[matching]
+'Chia Blockchain' = ''
+'Gimp' = ''
+'pavucontrol' = ''
+'org.gnome.Nautilus' = ''
+'eog' = ''
+'Postman' = ''
+'Chromium' = ''
+'Emacs' = ''
+'org.gnome.Calculator' = ''
+'jetbrains-studio' = ''
+"transmission-remote-gtk" = ""
+'GitHub Desktop' = ''
+"/(?i)^Github.*Firefox/" = ''
+'Nightly' = ''
+'/nvim ?\w*/' = ''
+'VirtualBox Manager' = ''
+'VirtualBox Machine' = ''
+'VirtualBox' = ''
+"com/.https://ultimaker.UltiMaker-Cura"= ""
+"remarkhub" = ""
+
+## partials
+'/GitHub/' = ''
+'/GitLab/' = ''
+'/NVIM ?\w*/' = ''
+'/npm/' = ''
+'/node/' = ''
+'/yarn/' = '󰄛'
+'/Stack Overflow/' = ''
+
+## browsers
+'google-chrome' = ''
+'Google-chrome' = ''
+'Google-chrome-unstable' = ''
+'google-chrome-unstable' = ''
+'Google-chrome-beta' = ''
+'google-chrome-beta' = ''
+'chromium' = ''
+'firefox' = ''
+'firefoxdeveloperedition' = ''
+'vivaldi-stable' = ''
+'zen-alpha' = ''
+'brave-browser' = '' 
+
+
+## default applications
+'foot' = ''
+'/foot/' = ''
+'footclient' = ''
+'floating_shell' = ''
+'pcmanfm' = ''
+'/^Open Folder/' = ''
+'pamac-manager' = ''
+'/Bluetooth/' = ''
+'file-roller' = '󰀼'
+'swappy' = '󰄄'
+
+## email
+'Thunderbird' = ''
+'thunderbird' = ''
+'thunderbird-beta' = ''
+'evolution' = ''
+
+## ide
+'code' = ''
+'Code' = ''
+'/- Visual Studio Code/' = ''
+'code-oss' = ''
+'/^Code - OSS/' = ''
+'/IntelliJ/' = ''
+'MongoDB Compass' = '󰌪'
+'dev.zed.Zed' = ''
+
+# messenger
+'whatsapp-for-linux' = ''
+'Slack' = ''
+'/Telegram/' = ''
+'/Microsoft Teams/' = ''
+'Signal' = '󰍡'
+'Mattermost' = '󰣕'
+'discord' = '󰙯'
+'WebCord' = '󰙯'
+'vesktop' = '󰙯'
+'Element' = '󰘨'
+
+## auth
+'polkit-gnome-authentication-agent-1' = ''
+'Keybase' = '󱕴'
+
+## additional applications
+'code-url-handler' = ''
+'balena-etcher' = ''
+'Steam' = ''
+'/steam/' = ''
+'vlc' = '󰕼'
+'transmission-gtk' = ''
+'Insomnia' = ''
+'Bitwarden' = ''
+'Spotify' = ''
+'YouTube Music' = '󰝚'
+'Alacritty' = ''
+'kitty' = ''
+'font-manager' = ''
+'lutris' = ''
+'/Wine/' = ''
+'Arctype' = ''
+'Around' = '󰍫'
+
+## Flatpak
+'org.telegram.desktop' = ''
+'org.qbittorrent.qBittorrent' = ''
+'org.wezfurlong.wezterm' = ''
+'org.keepassxc.KeePassXC' = ''
+'com.slack.Slack' = ''
+"org.freecadweb.FreeCAD"= ""
