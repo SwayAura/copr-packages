@@ -26,7 +26,7 @@ Mainly meant for the Sway window manager.
 %autosetup -n %{source_name}-%{version}
 
 # Copy SwayAura configuration
-%{__cp} %{SOURCE2} %{buildroot}/default_config.toml
+%__cp %SOURCE2 %{_builddir}/%{source_name}-%{version}/default_config.toml
 
 %build
 # Build release binary with cargo
