@@ -2,7 +2,7 @@
 
 Name:           swayr
 Version:        0.4.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Window-switcher & more for sway
 License:        GPL-3.0
 URL:            https://git.sr.ht/~tsdh/swayr
@@ -30,11 +30,11 @@ install -D -m0755 target/release/%{name}d \
   %{buildroot}%{_bindir}/%{name}d
 # Add systemd service
 install -D -m0644 swayr/etc/%{name}d.service \
-  %{buildroot}%{_exec_prefix}/lib/systemd/user/%{name}d.service
+  %{buildroot}%_userunitdir/%{name}d.service
 %files
-%{_bindir}/swayr
-%{_bindir}/swayrd
-%{_exec_prefix}/lib/systemd/user/%{name}d.service
+%_bindir/swayr
+%_bindir/swayrd
+%_userunitdir/%{name}d.service
 
 %changelog
 %autochangelog
