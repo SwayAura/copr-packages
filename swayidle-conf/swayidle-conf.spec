@@ -29,7 +29,7 @@ install -Dm0644 %{SOURCE1} \
 
 %files
 %_bindir/swayidle-conf
-%_userunitdir/swayidle.service
+%{_exec_prefix}/lib/systemd/user/swayidle.service
 
 %changelog
 %autochangelog

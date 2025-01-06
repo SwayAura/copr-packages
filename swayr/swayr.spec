@@ -34,7 +34,7 @@ install -D -m0644 swayr/etc/%{name}d.service \
 %files
 %_bindir/swayr
 %_bindir/swayrd
-%_userunitdir/%{name}d.service
+%{_exec_prefix}/lib/systemd/user/%{name}d.service
 
 %changelog
 %autochangelog
