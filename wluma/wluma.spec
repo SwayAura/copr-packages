@@ -18,6 +18,8 @@ BuildRequires: marked
 BuildRequires: libv4l-devel
 BuildRequires: vulkan-loader-devel
 BuildRequires: rust-libudev-devel
+BuildRequires: pkgconf-pkg-config
+BuildRequires: dbus-devel
 
 Requires: dbus
 Requires: vulkan-loader
