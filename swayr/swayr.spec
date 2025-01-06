@@ -1,7 +1,7 @@
 %global         debug_package %{nil}
 
 Name:           swayr
-Version:        0.1.3
+Version:        0.4.2
 Release:        1%{?dist}
 Summary:        Window-switcher & more for sway
 License:        GPL-3.0
@@ -34,5 +34,4 @@ install -D -m0755 target/release/%{name}d \
 %{_bindir}/swayrd
 
 %changelog
-* Sun Jan 05 2025 Maximizer <maximizerr@ik.me> - 0.4.3-1
-- Initial COPR/Fedora packaging
+%autochangelog
