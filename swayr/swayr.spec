@@ -15,7 +15,7 @@ BuildRequires:  cargo
 %{summary}
 
 %prep
-%autosetup -n %{name}-%{version}
+%autosetup -n %{name}-%{name}bar-%{version}
 
 %build
 RUSTUP_TOOLCHAIN=stable cargo build --release --locked --all-features --target-dir=target
