@@ -9,6 +9,7 @@ URL:            https://github.com/sentriz/cliphist
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires: go
+BuildRequires: git
 
 Requires: glibc
 Requires: wl-clipboard
