@@ -17,6 +17,7 @@ BuildRequires: systemd
 BuildRequires: marked
 BuildRequires: libv4l-devel
 BuildRequires: vulkan-loader-devel
+BuildRequires: rust-libudev-devel
 
 Requires: dbus
 Requires: vulkan-loader
