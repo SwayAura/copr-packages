@@ -12,6 +12,7 @@ Source0:        %{url}/archive/%{version}.tar.gz
 
 BuildRequires:	meson
 BuildRequires:  gcc
+BuildRequires:  systemd-libs
 BuildRequires:  scdoc
 
 Requires: glibc
