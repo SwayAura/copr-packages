@@ -24,7 +24,8 @@ By maintaining these packages in a [Copr repository](https://copr.fedorainfraclo
 
 The repository may contain (but is not limited to) the following packages:
 
-- **autotiling-rs** – Description [![Copr build status](https://copr.fedorainfracloud.org/coprs/maximizerr/SwayAura/package/autotiling-rs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/maximizerr/SwayAura/package/autotiling-rs/) ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fcopr.fedorainfracloud.org%2Fapi_3%2Fpackage%2F%3Fownername%3Dmaximizerr%26projectname%3DSwayAura%26packagename%3Dautotiling-rs%26with_latest_build%3Dfalse%26with_latest_succeeded_build%3Dtrue&query=%24.builds.latest_succeeded.source_package.version&style=for-the-badge&label=autotiling-rs&link=https%3A%2F%2Fcopr.fedorainfracloud.org%2Fcoprs%2Fmaximizerr%2FSwayAura%2Fpackage%2Fautotiling-rs%2F)
+- **autotiling-rs** – Description [![Copr build status](https://copr.fedorainfracloud.org/coprs/maximizerr/SwayAura/package/autotiling-rs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/maximizerr/SwayAura/package/autotiling-rs/) ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fcopr.fedorainfracloud.org%2Fapi_3%2Fpackage%2F%3Fownername%3Dmaximizerr%26projectname%3DSwayAura%26packagename%3Dautotiling-rs%26with_latest_build%3Dfalse%26with_latest_succeeded_build%3Dtrue&query=%24.builds.latest_succeeded.source_package.version&style=flat-square&label=VERSION&link=https%3A%2F%2Fcopr.fedorainfracloud.org%2Fcoprs%2Fmaximizerr%2FSwayAura%2Fpackage%2Fautotiling-rs%2F)
+
 
 
 - **cliphist** – Description [![Copr build status](https://copr.fedorainfracloud.org/coprs/maximizerr/SwayAura/package/cliphist/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/maximizerr/SwayAura/package/cliphist/)
