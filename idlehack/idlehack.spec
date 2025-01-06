@@ -12,6 +12,9 @@ License:        ISC
 URL:            https://github.com/loops/idlehack
 Source0:        %{url}/archive/%{commit}/%{name}-master-%{commit}.tar.gz
 
+BuildRequires: gcc
+BuildRequires: make
+
 %description
 %{summary}
 

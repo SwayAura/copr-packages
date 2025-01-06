@@ -12,10 +12,12 @@ Source0:        %{url}/archive/%{version}.tar.gz
 
 BuildRequires:	meson
 BuildRequires:  gcc
-BuildRequires:  systemd-libs
+BuildRequires:  git
+BuildRequires:  pkgconfig(libsystemd)
 BuildRequires:  scdoc
 
 Requires: glibc
+Requires: pkgconfig(libsystemd)
 Requires: systemd-libs
 Requires: upower
 
