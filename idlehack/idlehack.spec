@@ -15,7 +15,8 @@ Source0:        %{url}/archive/%{commit}/%{name}-master-%{commit}.tar.gz
 BuildRequires: gcc
 BuildRequires: make
 BuildRequires: systemd-libs
-BuildRequires: dbus
+BuildRequires: dbus-devel
+BuildRequires: systemd-devel
 BuildRequires: libX11-devel
 %description
 %{summary}
