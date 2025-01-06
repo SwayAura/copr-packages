@@ -28,10 +28,13 @@ install -D -m0755 target/release/%{name} \
   %{buildroot}%{_bindir}/%{name}
 install -D -m0755 target/release/%{name}d \
   %{buildroot}%{_bindir}/%{name}d
-
+# Add systemd service
+install -D -m0644 swayr/etc/%{name}d.service \
+  %{buildroot}%{_exec_prefix}/lib/systemd/user/%{name}d.service
 %files
 %{_bindir}/swayr
 %{_bindir}/swayrd
+%{_exec_prefix}/lib/systemd/user/%{name}d.service
 
 %changelog
 %autochangelog
