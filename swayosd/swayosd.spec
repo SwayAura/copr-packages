@@ -1,7 +1,7 @@
 %global commit dbb8b721fe43d2feca8a22cfac9a387a6c38a180
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global git_rel .git%{shortcommit}
-%global origname SwayOSD
+%global source_name SwayOSD
 
 Name:           swayosd
 Version:		0.1.0
@@ -38,7 +38,7 @@ BuildRequires:	systemd
 An OSD window for common actions like volume and capslock.
 
 %prep
-%autosetup -n %{origname}-%{commit} -p1 -a1
+%autosetup -n %{source_name}-%{commit} -p1 -a1
 %cargo_prep -v vendor
 
 
