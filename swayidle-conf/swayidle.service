@@ -1,0 +1,13 @@
+[Unit]
+Description=Idle manager for Wayland
+Documentation=man:swayidle(1)
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/swayidle-conf
+Restart=always
+
+[Install]
+WantedBy=graphical-session.target
