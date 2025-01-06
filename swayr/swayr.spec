@@ -6,7 +6,7 @@ Release:        1%{?dist}
 Summary:        Window-switcher & more for sway
 License:        GPL-3.0
 URL:            https://git.sr.ht/~tsdh/swayr
-Source0:        %{url}/archive/%{name}-%{version}.tar.gz
+Source0:        %{url}/archive/%{name}bar-%{version}.tar.gz
 
 BuildRequires:	rust
 BuildRequires:  cargo
