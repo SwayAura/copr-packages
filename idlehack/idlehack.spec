@@ -16,6 +16,7 @@ BuildRequires: gcc
 BuildRequires: make
 BuildRequires: systemd-libs
 BuildRequires: dbus
+BuildRequires: libX11-devel
 %description
 %{summary}
 
