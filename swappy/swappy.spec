@@ -45,24 +45,24 @@ other screen copy tools that can output a final PNG image to stdout.
 %meson_build
 %install
 %meson_install
-install -p -D -m 0644 -t %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps res/icons/hicolor/scalable/apps/%{name}.svg
+install -p -D -m 0644 -t %{buildroot}/%{_datadir}/icons/hicolor/scalable/apps res/icons/hicolor/scalable/apps/%{source_name}.svg
  
 desktop-file-install --dir %{buildroot}/%{_datadir}/applications \
-    %{buildroot}/%{_datadir}/applications/%{name}.desktop
+    %{buildroot}/%{_datadir}/applications/%{source_name}.desktop
  
-sed -i 's/^Exec=.*$/Exec=sh -c "if [ -n \\"\\\\$*\\" ]; then exec swappy -f \\"\\\\$@\\"; else grim -g \\"\\\\$(slurp)\\" - | swappy -f -; fi" placeholder %F/' %{buildroot}/%{_datadir}/applications/%{name}.desktop
+sed -i 's/^Exec=.*$/Exec=sh -c "if [ -n \\"\\\\$*\\" ]; then exec swappy -f \\"\\\\$@\\"; else grim -g \\"\\\\$(slurp)\\" - | swappy -f -; fi" placeholder %F/' %{buildroot}/%{_datadir}/applications/%{source_name}.desktop
  
-%find_lang %{name}
+%find_lang %{source_name}
  
-%files -f %{name}.lang
-%{_bindir}/%{name}
+%files -f %{source_name}.lang
+%{_bindir}/%{source_name}
 %{_datadir}/applications/*
 %{_datadir}/icons/*
  
 %license LICENSE
  
 %doc README.md
-%{_mandir}/man1/%{name}.1.*
+%{_mandir}/man1/%{source_name}.1.*
  
 %changelog
 * Sat Jul 20 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1.5.1-5
