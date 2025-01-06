@@ -11,6 +11,7 @@ URL:            https://git.sr.ht/~kennylevinsen/poweralertd
 Source0:        %{url}/archive/%{version}.tar.gz
 
 BuildRequires:	meson
+BuildRequires:  gcc
 BuildRequires:  scdoc
 
 Requires: glibc
