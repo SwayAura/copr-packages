@@ -11,6 +11,7 @@ URL:            https://github.com/mrusme/zeit
 Source0:        %{url}/archive/v%{version}/%{source_name}-%{version}.tar.gz
 
 BuildRequires:	go
+BuildRequires:	git
 
 %description
 %{summary}
