@@ -2,7 +2,7 @@
 
 Name:           swayr
 Version:        0.4.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Window-switcher & more for sway
 License:        GPL-3.0
 URL:            https://git.sr.ht/~tsdh/swayr
