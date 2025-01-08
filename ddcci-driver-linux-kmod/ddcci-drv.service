@@ -1,0 +1,14 @@
+[Unit]
+Description=DDC/CI Linux kernel module
+After=graphical.target
+Before=shutdown.target
+Conflicts=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/ddcci-driver/ddcci-modprobe.sh
+StandardOutput=journal
+Restart=no
+
+[Install]
+WantedBy=default.target
