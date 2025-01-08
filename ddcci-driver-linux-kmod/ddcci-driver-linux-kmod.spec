@@ -1,7 +1,9 @@
+# Original rpm.spec source: https://gitlab.com/Alberto97/rpms
+
 %define buildforkernels akmod
 %global debug_package %{nil}
 
-%global commit 0233e1ee5eddb4b8a706464f3097bad5620b65f4
+%global commit e0605c9cdff7bf3fe9587434614473ba8b7e5f63
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global git_rel .git%{shortcommit}
 %global source_name ddcci-driver-linux-kmod
@@ -16,17 +18,20 @@ Summary:        A pair of Linux kernel drivers for DDC/CI monitors
 Group:          System Environment/Kernel
 
 License:        GPL2
-URL:            https://gitlab.com/ddcci-driver-linux/ddcci-driver-linux
+
+# This fork allow to build on Kernel > 6.11
+# See https://gitlab.com/ddcci-driver-linux/ddcci-driver-linux/-/merge_requests/17
+URL:            https://gitlab.com/nullbytepl/ddcci-driver-linux
 Source0:        %{url}/-/archive/%{commit}/%{base_name}-%{commit}.tar.gz
 
-# See https://gitlab.com/ddcci-driver-linux/ddcci-driver-linux/-/merge_requests/17
-#URL:            https://gitlab.com/nullbytepl/ddcci-driver-linux
+# Original URL and Source
+#URL:            https://gitlab.com/ddcci-driver-linux/ddcci-driver-linux
 #Source0:        %{url}/-/archive/v%{version}/ddcci-driver-linux-v%{version}.tar.gz
 
 Source1:        ddcci-drv.service
 Source2:        ddcci-modprobe.sh
 
-BuildRequires: systemd-rpm-macros
+BuildRequires:  systemd-rpm-macros
 BuildRequires:  %{_bindir}/kmodtool
 Requires:       %{name}-common
 
@@ -56,7 +61,7 @@ kmodtool  --target %{_target_cpu}  --repo %{repo} --kmodname %{source_name} %{?b
 %setup -q -c -T -a 0
 
 for kernel_version in %{?kernel_versions} ; do
-    cp -a ddcci-driver-linux-v%{version} _kmod_build_${kernel_version%%___*}
+    cp -a ddcci-driver-linux-%{commit} _kmod_build_${kernel_version%%___*}
 done
 
 cp -rf %{_topdir}/SOURCES/ddcci-drv.service .
@@ -84,20 +89,4 @@ done
 %{_exec_prefix}/lib/ddcci-driver/ddcci-modprobe.sh
 
 %changelog
-* Sat May 18 2024 Alberto Pedron <albertop2197@gmail.com> - 0.4.4-3
-- Add support for 6.8 kernel
-
-* Sun Feb 25 2024 Alberto Pedron <albertop2197@gmail.com> - 0.4.4-2
-- Add support for 6.6 kernel
-
-* Sun Aug 20 2023 Alberto Pedron <albertop2197@gmail.com> - 0.4.4-1
-- Update to v0.4.4
-
-* Sat Jun 17 2023 Alberto Pedron <albertop2197@gmail.com> - 0.4.3-3
-- Add support for 6.4 kernel
-
-* Sun Jun 04 2023 Alberto Pedron <albertop2197@gmail.com> - 0.4.3-2
-- Fix build on 6.3 kernel
-
-* Mon Apr 24 2023 Alberto Pedron <albertop2197@gmail.com> - 0.4.3-1
-- Initial release
+%autochangelog
