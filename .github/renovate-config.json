@@ -3,37 +3,43 @@
     "onboarding": false,
     "requireConfig": "ignored",
     "platform": "github",
-    "repositories": ["SwayAura/copr-packages"],
+    "repositories": [
+        "SwayAura/copr-packages"
+    ],
     "prConcurrentLimit": 0,
     "prHourlyLimit": 5,
     "semanticCommits": "enabled",
     "enabledManagers": [
-      "regex"
+        "custom.regex"
     ],
     "packageRules": [
-      {
-        "matchPackagePatterns": [".*"],
-        "customManagers": [
-          {
-            "customType": "regex",
-            "fileMatch": ["^.*\\.spec$"],
-            "matchStrings": [
-              "(?<=%global gitrelease\\s)(\\S+)",
-              "(?<=URL:\\s+https:\\/\\/github\\.com\\/)([^/]+\\/[^/]+)"
+        {
+            "matchPackagePatterns": [
+                ".*"
             ],
-            "datasourceTemplate": "github-releases",
-            "depNameTemplate": "{{{ extract('URL:\\s+https:\\/\\/github\\.com\\/([^/]+\\/[^/]+)') }}}",
-            "versioningTemplate": "semver",
-            "postUpgradeTasks": {
-              "commands": [
-                "echo 'Updated gitrelease in .spec file'"
-              ],
-              "executionMode": "branch"
-            }
-          }
-        ]
-      }
+            "customManagers": [
+                {
+                    "customType": "regex",
+                    "fileMatch": [
+                        "^.*\\.spec$"
+                    ],
+                    "matchStrings": [
+                        "(?<=%global gitrelease\\s)(\\S+)",
+                        "(?<=URL:\\s+https:\\/\\/github\\.com\\/)([^/]+\\/[^/]+)"
+                    ],
+                    "datasourceTemplate": "github-releases",
+                    "depNameTemplate": "{{{ extract('URL:\\s+https:\\/\\/github\\.com\\/([^/]+\\/[^/]+)') }}}",
+                    "versioningTemplate": "semver",
+                    "postUpgradeTasks": {
+                        "commands": [
+                            "echo 'Updated gitrelease in .spec file'"
+                        ],
+                        "executionMode": "branch"
+                    }
+                }
+            ]
+        }
     ],
     "customDatasources": {},
     "customManagers": []
-  }
+}
