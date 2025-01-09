@@ -1,5 +1,5 @@
 %global debug_package %{nil}
-%global gitrelease 2024-05-01
+%global gitrelease 2023-10-30
 Name:           matcha-gtk-theme
 Version:        %(echo %{gitrelease} | tr '-' '.')
 Release:        1%{?dist}
