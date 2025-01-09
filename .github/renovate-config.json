@@ -20,11 +20,10 @@
             ],
             "matchStrings": [
                 "%global gitrelease\\s(?<currentValue>.*)",
-                "(?<=URL:\\s+https:\\/\\/github\\.com\\/)([^/]+\\/[^/]+)"
+                "URL:\\s+https:\/\/github\\.com\/(?<datasource>[^\/]+\/[^\/]+)"
             ],
             "datasourceTemplate": "github-releases",
-            "depNameTemplate": "{{{ matchStrings.[1] }}}",
-            "versioningTemplate": "semver"
+            "versioningTemplate": "loose"
         }
     ],
     "packageRules": [
