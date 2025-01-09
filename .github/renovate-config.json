@@ -10,36 +10,29 @@
     "prHourlyLimit": 5,
     "semanticCommits": "enabled",
     "enabledManagers": [
-        "custom.regex"
+        "regex"
+    ],
+    "customManagers": [
+        {
+            "customType": "regex",
+            "fileMatch": [
+                "^.*\\.spec$"
+            ],
+            "matchStrings": [
+                "(?<=%global gitrelease\\s)(\\S+)",
+                "(?<=URL:\\s+https:\\/\\/github\\.com\\/)([^/]+\\/[^/]+)"
+            ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "{{{ matchStrings.[1] }}}",
+            "versioningTemplate": "semver"
+        }
     ],
     "packageRules": [
         {
-            "customManagers": [
-                {
-                    "customType": "regex",
-                    "fileMatch": [
-                        "^.*\\.spec$"
-                    ],
-                    "matchStrings": [
-                        "(?<=%global gitrelease\\s)(\\S+)",
-                        "(?<=URL:\\s+https:\\/\\/github\\.com\\/)([^/]+\\/[^/]+)"
-                    ],
-                    "datasourceTemplate": "github-releases",
-                    "depNameTemplate": "{{{ extract('URL:\\s+https:\\/\\/github\\.com\\/([^/]+\\/[^/]+)') }}}",
-                    "versioningTemplate": "semver",
-                    "postUpgradeTasks": {
-                        "commands": [
-                            "echo 'Updated gitrelease in .spec file'"
-                        ],
-                        "executionMode": "branch"
-                    }
-                }
-            ],
             "matchPackageNames": [
-                "/.*/"
-            ]
+                ".*"
+            ],
+            "minimumReleaseAge": "12 hours"
         }
-    ],
-    "customDatasources": {},
-    "customManagers": []
+    ]
 }
