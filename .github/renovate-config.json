@@ -19,7 +19,7 @@
                 "^.*\\.spec$"
             ],
             "matchStrings": [
-                "(?<=%global gitrelease\\s)(\\S+)",
+                "%global gitrelease\\s(?<currentValue>.*)",
                 "(?<=URL:\\s+https:\\/\\/github\\.com\\/)([^/]+\\/[^/]+)"
             ],
             "datasourceTemplate": "github-releases",
