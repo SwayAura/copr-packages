@@ -14,9 +14,6 @@
     ],
     "packageRules": [
         {
-            "matchPackagePatterns": [
-                ".*"
-            ],
             "customManagers": [
                 {
                     "customType": "regex",
@@ -37,6 +34,9 @@
                         "executionMode": "branch"
                     }
                 }
+            ],
+            "matchPackageNames": [
+                "/.*/"
             ]
         }
     ],
