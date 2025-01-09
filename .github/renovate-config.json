@@ -20,7 +20,7 @@
             ],
             "matchStrings": [
                 "%global gitrelease\\s(?<currentValue>.*)",
-                "URL:\\s+https:\/\/github\\.com\/(?<datasource>[^\/]+\/[^\/]+)"
+                "URL:\\s+https:\/\/github\\.com\/(?<depName>[^\/]+\/[^\/]+)"
             ],
             "datasourceTemplate": "github-releases",
             "versioningTemplate": "loose"
