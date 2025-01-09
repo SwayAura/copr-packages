@@ -1,5 +1,7 @@
 name: Renovate
 on:
+  push:
+    branches: [fix/renovate] 
   workflow_dispatch:
   schedule:
     # The "*" (#42, asterisk) character has special semantics in YAML, so this
