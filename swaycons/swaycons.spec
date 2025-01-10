@@ -1,33 +1,34 @@
+%bcond check 1
+
+%global crate swaycons
+
 Name:           swaycons
 Version:        0.3.1
-Release:        1%{?dist}
-Summary:        Window Icons in Sway with Nerd Fonts
-License:        MIT
-URL:            https://github.com/allie-wake-up/swaycons
-Source0:        %{name}-%{version}.tar.gz
-BuildRequires:  cargo
-BuildRequires:  cargo-packaging
+Release:        %autorelease
+Summary:        Adds nerd font icons to sway window titles
 
-%description
-%{summary}
+# Upstream license specification: MIT / Apache-2.0
+License:        MIT OR Apache-2.0
+URL:            https://crates.io/crates/swaycons
+Source:         %{crates_source}
 
-%prep
-%autosetup
+BuildRequires:  cargo-rpm-macros >= 24
 
-%build
-%cargo_build
+%global _description %{expand:
+Swaycons adds nerd font icons to sway window titles.}
 
-%check
-%cargo_test
+%description %{_description}
 
-%install
-%cargo_install
-install -m0644 %{_builddir}/src/config.toml %{buildroot}%{_sysconfdir}/xdg/%{name}/config.toml
+%package     -n %{crate}
+Summary:        %{summary}
+License:        MIT OR Apache-2.0
 
-%files
+%description -n %{crate} %{_description}
+
+%files       -n %{crate}
 %license LICENSE
+%license LICENSE-APACHE-2.0
+%license LICENSE.dependencies
 %doc README.md
-%config(noreplace) %{_sysconfdir}/xdg/%{name}/config.toml
 %{_bindir}/swaycons
 
-%changelog
