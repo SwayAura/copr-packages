@@ -3,7 +3,7 @@
 %global         source_name wluma
 
 Name:           wluma
-Version:        4.6.0
+Version:        4.9.0
 Release:        1%{?dist}
 Summary:        Automatic brightness adjustment based on screen contents and ALS
 License:        ISC
@@ -36,16 +36,27 @@ Requires: vulkan
 %autosetup
 
 %build
-make build
-
+RUSTUP_TOOLCHAIN=stable cargo build --release --locked --all-features --target-dir=target
 # Generate docs 
-# make docs don't work because of use of marked-man instead of marked
+# make docs doesn't work because of use of marked-man instead of marked
 marked -i README.md -o "%{name}.7"
 gzip "%{name}.7"
 
 %install
-rm -rf %{buildroot}
-make install DESTDIR=%{buildroot} PREFIX=%{_prefix} 
+install -D -m0755 target/release/%{name} \
+  %{buildroot}%{_bindir}/%{name}
+install -Dm644 90-%{name}-backlight.rules \
+  %{buildroot}%{_exec_prefix}/lib/udev/rules.d/90-%{name}-backlight.rules 
+install -Dm644 %{name}.service \
+  %{buildroot}%{_exec_prefix}/lib/systemd/user/%{name}.service
+install -Dm644 LICENSE \
+  %{buildroot}%{_licensedir}/%{name}/LICENSE
+install -Dm644 README.md \
+  %{buildroot}%{_datadir}/doc/%{name}
+install -Dm644 %{name}.7.gz \
+  %{buildroot}%{_datadir}/man/man7/%{name}.7.gz
+install -Dm644 config.toml \
+  %{buildroot}%{_datadir}/%{name}/examples/config.toml
 
 %files
 %license %{_licensedir}/%{name}/LICENSE
