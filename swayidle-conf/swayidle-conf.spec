@@ -16,6 +16,8 @@ Source1:        swayidle.service
 
 Requires: python
 
+BuildRequires: systemd-rpm-macros
+
 %description
 %{summary}
 
@@ -25,11 +27,11 @@ Requires: python
 %install
 install -Dm0755 bin/%{name} "%{buildroot}%{_bindir}/%{name}"
 install -Dm0644 %{SOURCE1} \
-  %{buildroot}%{_exec_prefix}/lib/systemd/user/swayidle.service
+  %{buildroot}%{_userunitdir}/swayidle.service
 
 %files
 %_bindir/swayidle-conf
-%{_exec_prefix}/lib/systemd/user/swayidle.service
+%{_userunitdir}/swayidle.service
 
 %changelog
 %autochangelog
