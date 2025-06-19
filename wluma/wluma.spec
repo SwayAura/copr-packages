@@ -4,7 +4,7 @@
 
 Name:           wluma
 Version:        4.9.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Automatic brightness adjustment based on screen contents and ALS
 License:        ISC
 URL:            https://github.com/maximbaz/wluma
@@ -14,6 +14,7 @@ BuildRequires: rust
 BuildRequires: cargo
 BuildRequires: clang
 BuildRequires: systemd
+BuildRequires: systemd-rpm-macros
 BuildRequires: marked
 BuildRequires: libv4l-devel
 BuildRequires: vulkan-loader-devel
@@ -46,27 +47,26 @@ gzip "%{name}.7"
 install -D -m0755 target/release/%{name} \
   %{buildroot}%{_bindir}/%{name}
 install -Dm644 90-%{name}-backlight.rules \
-  %{buildroot}%{_exec_prefix}/lib/udev/rules.d/90-%{name}-backlight.rules 
+  %{buildroot}%{_udevrulesdir}/90-%{name}-backlight.rules
 install -Dm644 %{name}.service \
-  %{buildroot}%{_exec_prefix}/lib/systemd/user/%{name}.service
-install -Dm644 LICENSE \
-  %{buildroot}%{_licensedir}/%{name}/LICENSE
-install -Dm644 README.md \
-  %{buildroot}%{_datadir}/doc/%{name}
+  %{buildroot}%{_userunitdir}/%{name}.service
 install -Dm644 %{name}.7.gz \
-  %{buildroot}%{_datadir}/man/man7/%{name}.7.gz
+  %{buildroot}%{_mandir}/man7/%{name}.7.gz
 install -Dm644 config.toml \
   %{buildroot}%{_datadir}/%{name}/examples/config.toml
 
 %files
-%license %{_licensedir}/%{name}/LICENSE
-%{_bindir}/wluma
-%{_exec_prefix}/lib/udev/rules.d/90-%{name}-backlight.rules
-%{_exec_prefix}/lib/systemd/user/%{name}.service
-%{_datadir}/doc/%{name}
-%{_datadir}/man/man7/%{name}.7.gz
-%{_datadir}/%{name}/examples/config.toml
+%license LICENSE
+%doc README
+%{_bindir}/%{name}
+%{_udevrulesdir}/90-%{name}-backlight.rules
+%{_userunitdir}/%{name}.service
+%{_mandir}/man7/%{name}.7.gz
+%doc %{_datadir}/%{name}/examples/config.toml
 
 %changelog
+* Tue Jun 17 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 4.9.0-2
+- Use better macros and file section
+
 * Sun Jan 05 2025 Maximizer <maximizerr@ik.me> - 1.3.5-1
 - Initial COPR/Fedora packaging

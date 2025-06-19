@@ -4,7 +4,7 @@
 
 Name:           poweralertd
 Version:        0.3.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        UPower-powered power alerter
 License:        GPL-3.0
 URL:            https://git.sr.ht/~kennylevinsen/poweralertd
@@ -14,6 +14,7 @@ BuildRequires:	meson
 BuildRequires:  gcc
 BuildRequires:  git
 BuildRequires:  systemd
+BuildRequires:  systemd-rpm-macros
 BuildRequires:  pkgconfig(libsystemd)
 BuildRequires:  scdoc
 
@@ -38,15 +39,15 @@ Requires: upower
 #install -D -m0755 build/%{name} \
 #  %{buildroot}%{_bindir}/%{name}
 
-# Install license
-#install -D -m0644 LICENSE \
-#  %{buildroot}%{_licensedir}/%{name}/LICENSE
-
 %files
+%license LICENSE
 %{_bindir}/poweralertd
-%{_exec_prefix}/lib/systemd/user/%{name}.service
-%{_datadir}/man/man1/%{name}.1.gz
+%{_userunitdir}/%{name}.service
+%{_mandir}/man1/%{name}.1.gz
 
 %changelog
+* Tue Jun 17 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 0.3.0-2
+- Use better macros and file section
+
 * Sun Jan 05 2025 Maximizer <maximizerr@ik.me> - 0.4.3-1
 - Initial COPR/Fedora packaging

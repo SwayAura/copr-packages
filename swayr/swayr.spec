@@ -10,6 +10,7 @@ Source0:        %{url}/archive/%{name}bar-%{version}.tar.gz
 
 BuildRequires:	rust
 BuildRequires:  cargo
+BuildRequires:  systemd-rpm-macros
 
 %description
 %{summary}
@@ -30,11 +31,11 @@ install -D -m0755 target/release/%{name}d \
   %{buildroot}%{_bindir}/%{name}d
 # Add systemd service
 install -D -m0644 swayr/etc/%{name}d.service \
-  %{buildroot}%{_exec_prefix}/lib/systemd/user/%{name}d.service
+  %{buildroot}%{_userunitdir}/%{name}d.service
 %files
 %{_bindir}/swayr
 %{_bindir}/swayrd
-%{_exec_prefix}/lib/systemd/user/%{name}d.service
+%{_userunitdir}/%{name}d.service
 
 %changelog
 %autochangelog

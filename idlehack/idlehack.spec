@@ -6,7 +6,7 @@
 
 Name:           idlehack
 Version:        1.0.0
-Release:        1%{?git_rel}%{?dist}
+Release:        2%{?git_rel}%{?dist}
 Summary:        Monitor dbus and inhibit swayidle when Firefox or Chromium request it
 License:        ISC
 URL:            https://github.com/loops/idlehack
@@ -17,6 +17,7 @@ BuildRequires: make
 BuildRequires: systemd-libs
 BuildRequires: dbus-devel
 BuildRequires: systemd-devel
+BuildRequires: systemd-rpm-macros
 BuildRequires: libX11-devel
 %description
 %{summary}
@@ -34,17 +35,17 @@ install -D -m0755 %{name} \
 install -D -m0755 swayidle-inhibit \
   %{buildroot}%{_bindir}/swayidle-inhibit
 install -D -m0644 %{name}.service \
-  %{buildroot}%{_exec_prefix}/lib/systemd/user/%{name}.service
-# Install license
-install -D -m0644 LICENSE.txt \
-  %{buildroot}%{_licensedir}/%{name}/LICENSE
+  %{buildroot}%{_userunitdir}/%{name}.service
 
 %files
-%license %{_licensedir}/%{name}/LICENSE
+%license LICENSE.txt
 %{_libexecdir}/idlehack
 %{_bindir}/swayidle-inhibit
-%{_exec_prefix}/lib/systemd/user/%{name}.service
+%{_userunitdir}/%{name}.service
 
 %changelog
+* Tue Jun 17 2025 Ewoud Kohl van Wijngaarden <ewoud@kohlvanwijngaarden.nl> - 1.0.0-2.gitfd73c76
+- Use better macros and file section
+
 * Sun Jan 05 2025 Maximizer <maximizerr@ik.me> - 0.4.3-1
 - Initial COPR/Fedora packaging
